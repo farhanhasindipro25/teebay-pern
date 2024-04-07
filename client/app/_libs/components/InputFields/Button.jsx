@@ -1,12 +1,12 @@
 import { cva } from "class-variance-authority";
 import React from "react";
-import cn from "../utils-kit/cn";
+import cn from "../../utils-kit/cn";
 import {
   DANGER_BUTTON_STYLES,
   DEFAULT_BUTTON_STYLES,
   PRIMARY_BUTTON_STYLES,
   SECONDARY_BUTTON_STYLES,
-} from "../styles-kit/ButtonStyleKit";
+} from "../../styles-kit/ButtonStyleKit";
 
 const BUTTON_VARIANTS = cva(DEFAULT_BUTTON_STYLES, {
   variants: {

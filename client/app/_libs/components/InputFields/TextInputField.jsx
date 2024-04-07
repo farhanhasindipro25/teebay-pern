@@ -1,9 +1,9 @@
 import React from "react";
-import cn from "../utils-kit/cn";
+import cn from "../../utils-kit/cn";
 import {
   INPUT_BOX_STYLES,
   INPUT_LABEL_STYLES,
-} from "../styles-kit/TextInputFieldStyleKit";
+} from "../../styles-kit/TextInputFieldStyleKit";
 
 export default function TextInputField(props) {
   const {

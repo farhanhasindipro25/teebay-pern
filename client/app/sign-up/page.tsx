@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
-import Button from "../_libs/components/Button";
-import TextInputField from "../_libs/components/TextInputField";
+import Button from "../_libs/components/InputFields/Button";
+import TextInputField from "../_libs/components/InputFields/TextInputField";
 
 export default function SignupPage() {
   return (

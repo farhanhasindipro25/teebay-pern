@@ -4,7 +4,7 @@ import React from "react";
 import {
   customStyles,
   SELECT_LABEL_STYLES,
-} from "../styles-kit/SelectFieldStyleKit";
+} from "../../styles-kit/SelectFieldStyleKit";
 
 export default function SelectField(props) {
   const {
