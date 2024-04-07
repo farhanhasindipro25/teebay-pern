@@ -2,7 +2,7 @@ import { cva } from "class-variance-authority";
 import React from "react";
 import cn from "../utils-kit/cn";
 import {
-    DANGER_BUTTON_STYLES,
+  DANGER_BUTTON_STYLES,
   DEFAULT_BUTTON_STYLES,
   PRIMARY_BUTTON_STYLES,
   SECONDARY_BUTTON_STYLES,
@@ -24,11 +24,11 @@ const BUTTON_VARIANTS = cva(DEFAULT_BUTTON_STYLES, {
 export default function Button({
   children,
   variant,
-  className,
+  className = "",
   type = "button",
   ...props
 }) {
-  const BUTTON_STYLES = cn(BUTTON_VARIANTS({ variant }), className ?? "");
+  const BUTTON_STYLES = cn(BUTTON_VARIANTS({ variant }), className);
 
   return (
     <button className={BUTTON_STYLES} type={type} {...props}>
