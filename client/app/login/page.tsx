@@ -1,6 +1,7 @@
 import React from "react";
 import TextInputField from "../_libs/components/TextInputField";
 import Button from "../_libs/components/Button";
+import Link from "next/link";
 
 export default function LoginPage() {
   return (
@@ -19,11 +20,20 @@ export default function LoginPage() {
           name="password"
           id="password"
           type="password"
-          placeholder="name@example.com"
+          placeholder="Enter your password"
         />
         <Button variant="primary" className="w-full justify-center">
           LOGIN
         </Button>
+        <p className="text-center">
+          Don't have an account?{" "}
+          <Link
+            href="/sign-up"
+            className="text-indigo-500 font-semibold hover:underline hover:text-indigo-400"
+          >
+            Signup
+          </Link>
+        </p>
       </form>
     </div>
   );
