@@ -26,7 +26,12 @@ export default function Navbar() {
         )}
         {pathname === "/" && (
           <Link href="/login">
-            <Button variant="secondary">LOGIN</Button>
+            <Button variant="primary">LOGIN</Button>
+          </Link>
+        )}
+        {pathname === "/my-products" && (
+          <Link href="/login">
+            <Button variant="secondary">LOGOUT</Button>
           </Link>
         )}
       </div>
