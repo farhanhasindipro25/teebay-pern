@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const pathname = usePathname();
-  console.log(pathname);
   return (
     <div className="bg-white py-5">
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-between flex-wrap">
@@ -16,14 +15,15 @@ export default function Navbar() {
         >
           TEEBAY
         </Link>
-        {pathname === "/login" && (
-          <Link
-            href="/"
-            className="text-gray-700 hover:text-indigo-500 font-semibold hover:underline"
-          >
-            All Products
-          </Link>
-        )}
+        {pathname === "/login" ||
+          (pathname === "/sign-up" && (
+            <Link
+              href="/"
+              className="text-gray-700 hover:text-indigo-500 font-semibold hover:underline"
+            >
+              All Products
+            </Link>
+          ))}
         {pathname === "/" && (
           <Link href="/login">
             <Button variant="primary">LOGIN</Button>
