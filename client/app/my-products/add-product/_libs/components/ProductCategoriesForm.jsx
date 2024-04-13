@@ -1,6 +1,7 @@
 import React from "react";
 import SelectField from "../../../../_libs/components/InputFields/SelectField";
 import Button from "../../../../_libs/components/InputFields/Button";
+import productCategoryOptions from "../statics/productCategoryOptions";
 
 export default function ProductCategoriesForm({ currentStep, setCurrentStep }) {
   return (
@@ -13,7 +14,7 @@ export default function ProductCategoriesForm({ currentStep, setCurrentStep }) {
           name=""
           id=""
           placeholder="Select a category"
-          options={[]}
+          options={productCategoryOptions}
         />
         <div className="flex gap-4 justify-end">
           <Button
