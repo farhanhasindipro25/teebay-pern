@@ -8,14 +8,16 @@ export default function ProductTitleForm({ currentStep, setCurrentStep }) {
       <p className="text-lg text-gray-700 text-center font-bold">
         Enter a title for your product
       </p>
-      <TextInputField name="" id="" placeholder="e.g. iphone 15 pro max" />
-      <div className="flex justify-end">
-        <Button
-          variant="primary"
-          onClick={() => setCurrentStep(currentStep + 1)}
-        >
-          Next
-        </Button>
+      <div className="space-y-4">
+        <TextInputField name="" id="" placeholder="e.g. iphone 15 pro max" />
+        <div className="flex justify-end">
+          <Button
+            variant="primary"
+            onClick={() => setCurrentStep(currentStep + 1)}
+          >
+            Save & Continue
+          </Button>
+        </div>
       </div>
     </div>
   );

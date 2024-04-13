@@ -2,11 +2,16 @@
 import React, { useState } from "react";
 import MyProductsBreadcrumb from "../_libs/components/MyProductsBreadcrumb";
 import ProductTitleForm from "./_libs/components/ProductTitleForm";
+import ProductCategoriesForm from "./_libs/components/ProductCategoriesForm";
 
 export default function AddProductPage() {
   const [currentStep, setCurrentStep] = useState(0);
   const addProductSteps = [
     <ProductTitleForm
+      currentStep={currentStep}
+      setCurrentStep={setCurrentStep}
+    />,
+    <ProductCategoriesForm
       currentStep={currentStep}
       setCurrentStep={setCurrentStep}
     />,
