@@ -1,26 +1,26 @@
 const productCategoryOptions = [
   {
-    label: "ELECTRONICS",
+    label: "Electronics",
     value: "ELECTRONICS",
   },
   {
-    label: "FURNITURE",
+    label: "Furniture",
     value: "FURNITURE",
   },
   {
-    label: "HOME APPLIANCES",
+    label: "Home Appliances",
     value: "HOME APPLIANCES",
   },
   {
-    label: "SPORTING GOODS",
+    label: "Sporting Goods",
     value: "SPORTING GOODS",
   },
   {
-    label: "OUTDOOR",
+    label: "Outdoor",
     value: "OUTDOOR",
   },
   {
-    label: "TOYS",
+    label: "Toys",
     value: "TOYS",
   },
 ];

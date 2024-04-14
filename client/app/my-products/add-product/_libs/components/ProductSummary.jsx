@@ -41,12 +41,7 @@ export default function ProductSummary({ currentStep, setCurrentStep }) {
           >
             Go Back
           </Button>
-          <Button
-            variant="primary"
-            onClick={() => setCurrentStep(currentStep + 1)}
-          >
-            Add Product
-          </Button>
+          <Button variant="primary">Add Product</Button>
         </div>
       </div>
     </div>

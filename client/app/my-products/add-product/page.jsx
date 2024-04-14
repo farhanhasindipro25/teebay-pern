@@ -40,7 +40,7 @@ export default function AddProductPage() {
           Fields marked with <span className="text-red-500">*</span> are
           required
         </p>
-        <div>{addProductSteps[currentStep]}</div>
+        <form>{addProductSteps[currentStep]}</form>
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import React from "react";
 import { PencilSquareIcon, TrashIcon } from "@heroicons/react/24/outline";
+import Link from "next/link";
 
 export default function MyProductCard() {
   return (
@@ -7,7 +8,9 @@ export default function MyProductCard() {
       <div className="flex items-center justify-between">
         <h2 className="text-xl font-semibold text-gray-800">Cricket Kit</h2>
         <div className="flex items-center gap-4">
-          <PencilSquareIcon className="w-6 h-6 cursor-pointer text-gray-500" />
+          <Link href={`/my-products/${1}/edit`}>
+            <PencilSquareIcon className="w-6 h-6 cursor-pointer text-gray-500" />
+          </Link>
           <TrashIcon className="w-6 h-6 cursor-pointer text-red-500" />
         </div>
       </div>

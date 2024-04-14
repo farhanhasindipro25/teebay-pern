@@ -13,6 +13,7 @@ export default function ProductCategoriesForm({ currentStep, setCurrentStep }) {
         <SelectField
           name=""
           id=""
+          isMulti={true}
           placeholder="Select a category"
           label="Product Category *"
           options={productCategoryOptions}

@@ -32,6 +32,23 @@ export const customStyles = {
     overflow: "hidden",
     fontSize: "14px",
   }),
+  multiValue: (provided) => ({
+    ...provided,
+    backgroundColor: "white",
+    color: "rgb(99, 102, 241)",
+    borderRadius: "20px",
+    padding: "2px 6px",
+    marginRight: "5px",
+    fontWeight: 600,
+    border: "1px solid",
+    borderColor: "rgb(99, 102, 241)",
+  }),
+
+  multiValueLabel: (provided) => ({
+    ...provided,
+    color: "rgb(99, 102, 241)",
+    backgroundColor: "white",
+  }),
 
   singleValue: (provided) => ({
     ...provided,

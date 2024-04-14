@@ -52,6 +52,7 @@ export default function SelectField(props) {
         noOptionsMessage={() => "No options"}
         onChange={onChange}
         onBlur={onBlur}
+        isMulti={isMulti}
         isClearable={isClearable}
         defaultValue={defaultValue}
         {...otherProps}
