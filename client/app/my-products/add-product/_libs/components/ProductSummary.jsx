@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "../../../../_libs/components/InputFields/Button";
+import Badge from "../../../../_libs/components/ui/Badge";
 
 export default function ProductSummary({ currentStep, setCurrentStep }) {
   return (
@@ -12,8 +13,12 @@ export default function ProductSummary({ currentStep, setCurrentStep }) {
           <h2 className="text-gray-700 font-semibold">
             Product Title: <span className="font-medium">Playstation 5</span>
           </h2>
-          <h2 className="text-gray-700 font-semibold">
-            Categories: <span className="font-medium">Electronics, Toys</span>
+          <h2 className="text-gray-700 flex gap-2 items-center font-semibold">
+            Categories:{" "}
+            <span className="flex items-center gap-2">
+              <Badge variant="INFORMATION">Electronics</Badge>
+              <Badge variant="INFORMATION">Toys</Badge>
+            </span>
           </h2>
           <h2 className="text-gray-700 font-semibold">
             Description:{" "}
