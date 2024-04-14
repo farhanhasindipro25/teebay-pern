@@ -1,12 +1,15 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Badge from "../_libs/components/ui/Badge";
 import Button from "../_libs/components/InputFields/Button";
 import { ChevronLeftIcon } from "@heroicons/react/24/outline";
 import { useRouter } from "next/navigation";
+import ProductBuyConfirmationModal from "../[slug]/_libs/components/ProductBuyConfirmationModal";
 
 export default function GlobalProductsDetailPage() {
   const router = useRouter();
+  const [openProductBuyConfirmationModal, setOpenProductBuyConfirmationModal] =
+    useState(false);
   return (
     <div className="space-y-4">
       <p
@@ -46,8 +49,17 @@ export default function GlobalProductsDetailPage() {
       </p>
       <div className="flex justify-end gap-4">
         <Button variant="secondary">RENT</Button>
-        <Button variant="primary">BUY</Button>
+        <Button
+          variant="primary"
+          onClick={() => setOpenProductBuyConfirmationModal(true)}
+        >
+          BUY
+        </Button>
       </div>
+      <ProductBuyConfirmationModal
+        open={openProductBuyConfirmationModal}
+        setOpen={setOpenProductBuyConfirmationModal}
+      />
     </div>
   );
 }
