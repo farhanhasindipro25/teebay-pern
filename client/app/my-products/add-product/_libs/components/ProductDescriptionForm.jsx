@@ -15,6 +15,7 @@ export default function ProductDescriptionForm({
         <AutoSizeTextAreaField
           name=""
           id=""
+          label="Product Description *"
           placeholder="Describe your product..."
           minRows={3}
         />

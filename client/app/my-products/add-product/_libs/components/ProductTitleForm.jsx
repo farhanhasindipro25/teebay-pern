@@ -9,7 +9,12 @@ export default function ProductTitleForm({ currentStep, setCurrentStep }) {
         Enter a title for your product
       </p>
       <div className="space-y-4">
-        <TextInputField name="" id="" placeholder="e.g. iphone 15 pro max" />
+        <TextInputField
+          name=""
+          id=""
+          placeholder="e.g. iphone 15 pro max"
+          label="Product Title *"
+        />
         <div className="flex justify-end">
           <Button
             variant="primary"

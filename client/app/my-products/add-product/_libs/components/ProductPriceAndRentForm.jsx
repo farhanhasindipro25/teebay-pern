@@ -17,19 +17,19 @@ export default function ProductPriceAndRentForm({
           name=""
           id=""
           placeholder="Enter product price"
-          label="Price"
+          label="Price *"
         />
         <div className="flex gap-4">
           <TextInputField
             name=""
             id=""
             placeholder="Enter rental charge"
-            label="Rent"
+            label="Rent *"
           />
           <SelectField
             name=""
             id=""
-            label="Rental Timeline"
+            label="Rental Timeline *"
             placeholder="Select rental timeline"
             options={[]}
           />

@@ -11,7 +11,7 @@ export default function AutoSizeTextAreaField(props) {
     id,
     type = "text",
     value,
-    label,
+    label = "",
     placeholder,
     defaultValue,
     className,
@@ -21,10 +21,18 @@ export default function AutoSizeTextAreaField(props) {
   } = props;
 
   const TEXTAREA_FIELD_STYLES = cn(TEXTAREA_BOX_STYLES, className);
+  const isRequired = label?.includes("*");
   return (
     <div className="flex flex-col gap-1">
       <label htmlFor={id} className={TEXTAREA_LABEL_STYLES}>
-        {label}
+        {isRequired === false ? (
+          label
+        ) : (
+          <div className="flex">
+            {label.split("*")[0]}
+            <span className="text-red-500">*</span>
+          </div>
+        )}
       </label>
       <ReactTextareaAutosize
         placeholder={placeholder}

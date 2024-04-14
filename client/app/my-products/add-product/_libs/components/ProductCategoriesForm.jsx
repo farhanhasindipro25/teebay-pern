@@ -14,6 +14,7 @@ export default function ProductCategoriesForm({ currentStep, setCurrentStep }) {
           name=""
           id=""
           placeholder="Select a category"
+          label="Product Category *"
           options={productCategoryOptions}
         />
         <div className="flex gap-4 justify-end">
