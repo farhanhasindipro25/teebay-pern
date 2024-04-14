@@ -1,8 +1,12 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import { PencilSquareIcon, TrashIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
+import DeleteConfirmationModal from "./DeleteConfirmationModal";
 
 export default function MyProductCard() {
+  const [openDeleteConfirmationModal, setOpenDeleteConfirmationModal] =
+    useState(false);
   return (
     <div className="p-6 bg-gray border-2 space-y-2 border-gray-300">
       <div className="flex items-center justify-between">
@@ -11,7 +15,14 @@ export default function MyProductCard() {
           <Link href={`/my-products/${1}/edit`}>
             <PencilSquareIcon className="w-6 h-6 cursor-pointer text-gray-500" />
           </Link>
-          <TrashIcon className="w-6 h-6 cursor-pointer text-red-500" />
+          <TrashIcon
+            className="w-6 h-6 cursor-pointer text-red-500"
+            onClick={() => setOpenDeleteConfirmationModal(true)}
+          />
+          <DeleteConfirmationModal
+            open={openDeleteConfirmationModal}
+            setOpen={setOpenDeleteConfirmationModal}
+          />
         </div>
       </div>
       <p className="text-base font-semibold text-gray-500">
