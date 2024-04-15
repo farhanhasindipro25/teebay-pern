@@ -1,6 +1,6 @@
-import prisma from "../../db/db.config.js";
+import prisma from "../../../db/db.config.js";
 
-export const createCategory = async (req, res) => {
+const createCategory = async (req, res) => {
   const { name } = req.body;
 
   try {
@@ -38,7 +38,7 @@ export const createCategory = async (req, res) => {
   }
 };
 
-export const getCategories = async (req, res) => {
+const getCategories = async (req, res) => {
   try {
     const categories = await prisma.category.findMany();
     return res.status(200).json({
@@ -53,4 +53,9 @@ export const getCategories = async (req, res) => {
       error: error.message,
     });
   }
+};
+
+export const CategoriesController = {
+  createCategory,
+  getCategories,
 };

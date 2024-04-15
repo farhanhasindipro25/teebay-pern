@@ -1,8 +1,8 @@
 import { Router } from "express";
-import UserRoutes from "./users.routes.js";
-import AuthRoutes from "./auth.routes.js";
-import MyproductRoutes from "./my-products.routes.js";
-import CategoryRoutes from "./categories.routes.js";
+import AuthRoutes from "../modules/auth/auth.routes.js";
+import UserRoutes from "../modules/users/users.routes.js";
+import CategoryRoutes from "../modules/categories/categories.routes.js";
+import ProductRoutes from "../modules/products/products.routes.js";
 
 const appRouter = Router();
 
@@ -17,7 +17,7 @@ const moduleRoutes = [
   },
   {
     path: "/products",
-    route: MyproductRoutes,
+    route: ProductRoutes,
   },
   {
     path: "/categories",

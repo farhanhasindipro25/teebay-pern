@@ -1,6 +1,6 @@
-import prisma from "../../db/db.config.js";
+import prisma from "../../../db/db.config.js";
 
-export const loginUser = async (req, res) => {
+const loginUser = async (req, res) => {
   const { email, password } = req.body;
   try {
     const user = await prisma.user.findUnique({
@@ -32,3 +32,5 @@ export const loginUser = async (req, res) => {
     });
   }
 };
+
+export const AuthController = { loginUser };

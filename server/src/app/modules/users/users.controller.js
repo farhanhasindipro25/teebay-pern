@@ -1,5 +1,6 @@
-import prisma from "../../db/db.config.js";
-export const createUser = async (req, res) => {
+import prisma from "../../../db/db.config.js";
+
+const createUser = async (req, res) => {
   const {
     first_name,
     last_name,
@@ -47,4 +48,8 @@ export const createUser = async (req, res) => {
       error: error?.message,
     });
   }
+};
+
+export const UsersController = {
+  createUser,
 };
