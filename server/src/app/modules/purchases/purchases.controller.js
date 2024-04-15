@@ -74,7 +74,6 @@ const createPurchase = async (req, res) => {
 
 const getPurchases = async (req, res) => {
   const { id: userId } = req.params;
-  console.log(req.params);
 
   try {
     const purchases = await prisma.purchase.findMany({
