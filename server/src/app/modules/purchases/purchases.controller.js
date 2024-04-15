@@ -29,6 +29,12 @@ const createPurchase = async (req, res) => {
         message: "This user does not exist",
       });
     }
+    if (product.is_rented === true) {
+      res.status(409).json({
+        status: 409,
+        message: "This product is not available at the moment",
+      });
+    }
     if (product.is_bought === true && userId) {
       res.status(409).json({
         status: 409,
@@ -43,7 +49,6 @@ const createPurchase = async (req, res) => {
       data: {
         is_bought: true,
       },
-      include: { purchase: true },
     });
 
     await prisma.purchase.create({

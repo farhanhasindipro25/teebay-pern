@@ -31,6 +31,12 @@ const createRent = async (req, res) => {
       });
     }
 
+    if (product.is_bought === true) {
+      res.status(409).json({
+        status: 409,
+        message: "This product is not available at the moment",
+      });
+    }
     if (product.is_rented === true && userId) {
       res.status(409).json({
         status: 409,
@@ -38,7 +44,7 @@ const createRent = async (req, res) => {
       });
     }
 
-    const rentedProduct = await prisma.product.update({
+    await prisma.product.update({
       where: {
         id: parseInt(productId),
       },
@@ -47,19 +53,20 @@ const createRent = async (req, res) => {
       },
     });
 
-    await prisma.rent.create({
+    const rent = await prisma.rent.create({
       data: {
         userId: parseInt(userId),
         productId: parseInt(productId),
         startDate: new Date(startDate),
         endDate: new Date(endDate),
       },
+      include: { product: true },
     });
-
+    console.log(rent);
     res.status(200).json({
       status: 200,
       message: "Product rented!",
-      product: rentedProduct,
+      product: rent,
     });
   } catch (error) {
     res.status(500).json({
