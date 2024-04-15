@@ -3,9 +3,20 @@ import prisma from "../../db/db.config.js";
 export const createProduct = async (req, res) => {
   const { title, categories, description, price, rent, rent_timeline } =
     req.body;
+  let CategoryConnect = [];
+  if (Array.isArray(categories)) {
+    CategoryConnect = categories.map((categoryID) => ({
+      id: categoryID,
+    }));
+  } else {
+    return res.json({
+      status: 400,
+      message: "Categories is not in proper syntax!",
+    });
+  }
   const payload = {
     title: title,
-    categories: categories,
+    categories: { connect: CategoryConnect },
     description: description,
     price: price,
     rent: rent,
@@ -22,9 +33,14 @@ export const createProduct = async (req, res) => {
       data: payload,
     });
 
+    const productsWithAssociatedCategories = await prisma.myProduct.findUnique({
+      where: { id: newProduct.id },
+      include: { categories: true },
+    });
+
     return res.json({
       status: 201,
-      data: newProduct,
+      data: productsWithAssociatedCategories,
       message: "New product added!",
     });
   } catch (error) {
