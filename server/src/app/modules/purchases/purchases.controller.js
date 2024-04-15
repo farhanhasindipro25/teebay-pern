@@ -29,6 +29,13 @@ const createPurchase = async (req, res) => {
         message: "This user does not exist",
       });
     }
+    if (product.is_bought === true && userId) {
+      res.status(409).json({
+        status: 409,
+        message: "You have already bought this product",
+      });
+    }
+
     const updatedProduct = await prisma.product.update({
       where: {
         id: parseInt(productId),
