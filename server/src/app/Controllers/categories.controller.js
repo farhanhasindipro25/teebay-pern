@@ -37,3 +37,20 @@ export const createCategory = async (req, res) => {
     });
   }
 };
+
+export const getCategories = async (req, res) => {
+  try {
+    const categories = await prisma.category.findMany();
+    return res.status(200).json({
+      status: 200,
+      data: categories,
+      message: "Retrieved all categories",
+    });
+  } catch (error) {
+    return res.status(500).json({
+      status: 500,
+      message: "Internal Server Error",
+      error: error.message,
+    });
+  }
+};
