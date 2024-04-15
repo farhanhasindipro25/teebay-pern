@@ -1,8 +1,14 @@
 import prisma from "../../../db/db.config.js";
 
 const createProduct = async (req, res) => {
-  const { title, categories, description, price, rent, rent_timeline } =
-    req.body;
+  const {
+    title,
+    categories,
+    description,
+    price,
+    rental_charge,
+    rent_timeline,
+  } = req.body;
   let CategoryConnect = [];
   if (Array.isArray(categories)) {
     CategoryConnect = categories.map((categoryID) => ({
@@ -19,7 +25,7 @@ const createProduct = async (req, res) => {
     categories: { connect: CategoryConnect },
     description: description,
     price: price,
-    rent: rent,
+    rental_charge: rental_charge,
     rent_timeline: rent_timeline,
   };
   try {

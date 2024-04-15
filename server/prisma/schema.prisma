@@ -23,6 +23,7 @@ model User{
   password String
   confirm_password String
   purchases Purchase[]
+  rents Rent[]
 }
 
 model Category{
@@ -37,13 +38,12 @@ model Product{
   categories Category[]
   description String
   price String
-  rent String
+  rental_charge String
   rent_timeline String
   is_bought Boolean @default(false)
   is_rented Boolean @default(false)
-  renting_from DateTime?
-  renting_till DateTime?
   purchase Purchase[]
+  rent Rent[]
 }
 
 model Purchase{
@@ -53,4 +53,15 @@ model Purchase{
   createdAt DateTime @default(now())
   user User @relation(fields: [userId], references: [id])
   product Product @relation(fields: [productId], references: [id])
+}
+
+model Rent {
+  id            Int      @id @default(autoincrement())
+  userId        Int
+  productId     Int
+  startDate     DateTime
+  endDate       DateTime
+  createdAt     DateTime @default(now())
+  user          User     @relation(fields: [userId], references: [id])
+  product       Product  @relation(fields: [productId], references: [id])
 }
