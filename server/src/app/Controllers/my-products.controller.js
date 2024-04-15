@@ -129,3 +129,36 @@ export const editProduct = async (req, res) => {
     });
   }
 };
+
+export const deleteProduct = async (req, res) => {
+  const productId = parseInt(req.params.id);
+
+  try {
+    const existingProduct = await prisma.myProduct.findUnique({
+      where: { id: productId },
+    });
+
+    if (!existingProduct) {
+      return res.status(404).json({
+        status: 404,
+        message: "This product does not exist",
+      });
+    }
+
+    const deletedProduct = await prisma.myProduct.delete({
+      where: { id: productId },
+    });
+
+    return res.json({
+      status: 200,
+      data: deletedProduct,
+      message: "Product deleted successfully",
+    });
+  } catch (error) {
+    return res.status(500).json({
+      status: 500,
+      message: "Internal Server Error",
+      error: error.message,
+    });
+  }
+};
