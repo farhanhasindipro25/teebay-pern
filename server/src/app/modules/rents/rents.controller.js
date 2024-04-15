@@ -77,4 +77,31 @@ const createRent = async (req, res) => {
   }
 };
 
-export const RentController = { createRent };
+const getRents = async (req, res) => {
+  const { id: userId } = req.params;
+
+  try {
+    const rents = await prisma.rent.findMany({
+      where: {
+        userId: parseInt(userId),
+      },
+      include: {
+        product: true,
+      },
+    });
+
+    res.status(200).json({
+      status: 200,
+      message: "All rents of user retrieved!",
+      rents: rents,
+    });
+  } catch (error) {
+    res.status(500).json({
+      status: 500,
+      message: "Internal Server Error",
+      error: error?.message,
+    });
+  }
+};
+
+export const RentController = { createRent, getRents };
