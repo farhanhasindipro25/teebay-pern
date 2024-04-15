@@ -51,3 +51,22 @@ export const createProduct = async (req, res) => {
     });
   }
 };
+
+export const getProducts = async (req, res) => {
+  try {
+    const products = await prisma.myProduct.findMany({
+      include: { categories: true },
+    });
+    return res.status(200).json({
+      status: 200,
+      data: products,
+      message: "Retrieved all products data",
+    });
+  } catch (error) {
+    return res.status(500).json({
+      status: 500,
+      message: "Internal Server Error",
+      error: error.message,
+    });
+  }
+};
