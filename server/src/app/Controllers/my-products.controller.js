@@ -12,7 +12,7 @@ export const createProduct = async (req, res) => {
     rent_timeline: rent_timeline,
   };
   try {
-    if (!payload || typeof categories !== String) {
+    if (!payload) {
       return res.json({
         status: 400,
         message: "Payload structure is not in proper syntax!",

@@ -24,10 +24,16 @@ model User{
   confirm_password String
 }
 
+model Category{
+  id Int @id @default(autoincrement())
+  name String @unique
+  products MyProduct[]
+}
+
 model MyProduct{
   id Int @id @default(autoincrement())
   title String
-  categories String
+  categories Category[]
   description String
   price String
   rent String
