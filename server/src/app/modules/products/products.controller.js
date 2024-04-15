@@ -52,6 +52,53 @@ const createProduct = async (req, res) => {
   }
 };
 
+const buyProduct = async (req, res) => {
+  const { id: productId } = req.params;
+  const { userId } = req.body;
+
+  try {
+    const product = await prisma.product.findUnique({
+      where: {
+        id: parseInt(productId),
+      },
+    });
+
+    if (!product) {
+      return res.status(404).json({
+        status: 404,
+        message: "This product does not exist",
+      });
+    }
+    const updatedProduct = await prisma.product.update({
+      where: {
+        id: parseInt(productId),
+      },
+      data: {
+        is_bought: true,
+      },
+    });
+
+    const purchase = await prisma.purchase.create({
+      data: {
+        userId: parseInt(userId),
+        productId: parseInt(productId),
+      },
+    });
+
+    res.status(200).json({
+      status: 200,
+      message: "Product purchase completed",
+      product: { ...updatedProduct, ...purchase },
+    });
+  } catch (error) {
+    res.status(500).json({
+      status: 500,
+      message: "Internal Server Error",
+      error: error?.message,
+    });
+  }
+};
+
 const getProducts = async (req, res) => {
   try {
     const products = await prisma.product.findMany({
@@ -165,6 +212,7 @@ const deleteProduct = async (req, res) => {
 
 export const ProductsController = {
   createProduct,
+  buyProduct,
   getProducts,
   editProduct,
   deleteProduct,
